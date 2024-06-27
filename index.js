@@ -38,7 +38,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/dist"));
 console.log(chalk.blue("Serving Astro Files..."));
-app.use("/uv/", express.static(uvPath));
+app.use("/@/", express.static(uvPath));
 console.log(uv("Serving Ultraviolet Bundles..."));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/libcurl/", express.static(libcurlPath));
