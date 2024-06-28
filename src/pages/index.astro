@@ -1,123 +1,174 @@
----
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
----
+<!doctype html>
+<html lang="en">
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<svg
-			class="astro-a"
-			width="495"
-			height="623"
-			viewBox="0 0 495 623"
-			fill="none"
-			xmlns="http://www.w3.org/2000/svg"
-			aria-hidden="true"
-		>
-			<path
-				fill-rule="evenodd"
-				clip-rule="evenodd"
-				d="M167.19 364.254C83.4786 364.254 0 404.819 0 404.819C0 404.819 141.781 19.4876 142.087 18.7291C146.434 7.33701 153.027 0 162.289 0H332.441C341.703 0 348.574 7.33701 352.643 18.7291C352.92 19.5022 494.716 404.819 494.716 404.819C494.716 404.819 426.67 364.254 327.525 364.254L264.41 169.408C262.047 159.985 255.147 153.581 247.358 153.581C239.569 153.581 232.669 159.985 230.306 169.408L167.19 364.254ZM160.869 530.172C160.877 530.18 160.885 530.187 160.894 530.195L160.867 530.181C160.868 530.178 160.868 530.175 160.869 530.172ZM136.218 411.348C124.476 450.467 132.698 504.458 160.869 530.172C160.997 529.696 161.125 529.242 161.248 528.804C161.502 527.907 161.737 527.073 161.917 526.233C165.446 509.895 178.754 499.52 195.577 500.01C211.969 500.487 220.67 508.765 223.202 527.254C224.141 534.12 224.23 541.131 224.319 548.105C224.328 548.834 224.337 549.563 224.347 550.291C224.563 566.098 228.657 580.707 237.264 593.914C245.413 606.426 256.108 615.943 270.749 622.478C270.593 621.952 270.463 621.508 270.35 621.126C270.045 620.086 269.872 619.499 269.685 618.911C258.909 585.935 266.668 563.266 295.344 543.933C298.254 541.971 301.187 540.041 304.12 538.112C310.591 533.854 317.059 529.599 323.279 525.007C345.88 508.329 360.09 486.327 363.431 457.844C364.805 446.148 363.781 434.657 359.848 423.275C358.176 424.287 356.587 425.295 355.042 426.275C351.744 428.366 348.647 430.33 345.382 431.934C303.466 452.507 259.152 455.053 214.03 448.245C184.802 443.834 156.584 436.019 136.218 411.348Z"
-				fill="url(#paint0_linear_1805_24383)"></path>
-			<defs>
-				<linearGradient
-					id="paint0_linear_1805_24383"
-					x1="247.358"
-					y1="0"
-					x2="247.358"
-					y2="622.479"
-					gradientUnits="userSpaceOnUse"
-				>
-					<stop stop-opacity="0.9"></stop>
-					<stop offset="1" stop-opacity="0.2"></stop>
-				</linearGradient>
-			</defs>
-		</svg>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="SkioProxy" />
+    <meta name="description" content="A minimalistic Proxy with Everything you want. Made for Proxathon 2024" />
+    <title>Google</title>
+    <link rel="stylesheet" href="/assets/css/main.css" />
+    <link rel="icon" href="https://www.google.com/favicon.ico" type="image/x-icon" />
+</head>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
-	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
-	}
-</style>
+<body onload="startTime()">
+    <center>
+        <h3 style="
+                    margin-bottom: 30px;
+                    text-align: left;
+                    margin-left: 1%;
+                    margin-top: 10px;
+                ">
+            SkioProxy v1
+        </h3>
+        <div class="card" style="position: fixed">
+            <div class="bg">
+                <h2 style="
+                            margin-bottom: 30px;
+                            text-align: center;
+                            margin-left: -1%;
+                            margin-top: 10px;
+                        ">
+                    <div id="time"></div>
+                </h2>
+
+                <div class="searchbar" style="
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, -50%);
+                        ">
+                    <div class="searchbar-wrapper">
+                        <div class="searchbar-left">
+                            <div class="search-icon-wrapper">
+                                <span class="search-icon searchbar-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </div>
+                        </div>
+
+                        <form id="uv-form" class="searchbar-center">  
+                          <div class="searchbar-input-spacer"></div>
+                            <input id="uv-address" type="text" class="searchbar-input"
+                                maxlength="2048" autocapitalize="off" autocomplete="off" title="Search" role="combobox"
+                                placeholder="Search Anything" />
+                        </form>
+                    </div>
+                </div>
+                <p style="margin-top: 55px; font-size: 12px">
+                    Welcome to v1
+                </p>
+            </div>
+            <div class="blob"></div>
+        </div>
+        <center></center>
+    </center>
+    <div style="position: absolute; bottom: 20px; left: 20px">
+        <label class="container" title="Click for Dark/Light mode">
+            <input checked="checked" type="checkbox" id="backgroundToggle" />
+            <svg viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="moon">
+                <path
+                    d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z">
+                </path>
+            </svg>
+            <svg viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg" class="sun">
+                <path
+                    d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z">
+                </path>
+            </svg>
+        </label>
+            <div
+                class="group"
+                style="
+                    position: fixed;
+                    bottom: 4px;
+                    left: 43px;
+                    padding-top: 2px;
+                    padding-left: 2px;
+                    padding-right: 2px;
+                ">
+                <input
+                    type="color"
+                    id="colorPicker"
+                    class="style1"
+                    value="#ff00ac"
+                    title="Click and drag to change rgb line color" />
+                <input
+                    type="color"
+                    id="colorPicker3"
+                    class="style1"
+                    style="margin-left: -5px"
+                    value="#4b4b4b"
+                    title="Click and drag to change the top shadow color" />
+                <input
+                    type="color"
+                    id="colorPicker2"
+                    class="style1"
+                    style="margin-left: -5px"
+                    value="#d1d1d1"
+                    title="Click and drag to change the bottom shadow color" />
+            </div>
+        </div>
+        <div style="position: absolute; top: 10px; right: 10px" class="group">
+            <img
+                src="/assets/imgs/help.png"
+                alt="Question mark"
+                title="What is SkioProxy?"
+                class="icon"
+                style="width: 23px"
+                onclick="alert('SkioProxy is a template/service for people to use for making proxy browsing easier. Simple settings and uses makes SkioProxy versatile for you to use at any time.');" />
+            <img
+                class="icon"
+                src="/assets/imgs/noclose.png"
+                title="Prevent tab from closing"
+                id="myImage"
+                onclick="window.onbeforeunload = function() { return 'Leave site? Changes you made will not be saved'; }" />
+            <img
+                src="/assets/imgs/fullscreen.png"
+                alt="Fullscreen"
+                class="icon"
+                title="Fullscreen"
+                style="width: 23px"
+                onclick="openFullscreen();" />
+            <img
+                src="/assets/imgs/hide.png"
+                alt="Cloak"
+                title="Cloak"
+                class="icon"
+                style="width: 23px"
+                onclick="openGame();" />
+        </div>
+        <div
+            style="
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+                padding-top: 5px;
+                padding-bottom: 2px;
+            ">
+            <div id="background"></div>
+            <input type="file" id="file-input" accept="image/*" />
+            <img
+                id="upload-img"
+                class="icon"
+                src="/assets/imgs/upload.png"
+                alt="Upload Background"
+                title="Click to upload a custom background" />
+            <img
+                id="reset-img"
+                class="icon"
+                src="/assets/imgs/reset.png"
+                alt="Reset Background"
+                title="Click to reset the background" />
+        </div></body>
+<script src="/@/uv.bundle.js" is:inline></script>
+<script src="/@/uv.config.js" is:inline></script>
+<script src="/assets/js/index.js" is:inline></script>
+<script src="/assets/js/main.js" is:inline></script>
+
+
+</html>
