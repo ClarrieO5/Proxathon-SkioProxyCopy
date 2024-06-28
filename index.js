@@ -101,10 +101,13 @@ function startServer() {
     }
 
     console.log(chalk.blue("Creating Paths..."));
-    app.use((req, res) => {
-        res.status(404);
-        res.sendFile(path.join(process.cwd(), "/public/error.html"));
-    });
+    app.get("/", (req, res) => {
+        res.sendFile(path.join(process.cwd(), "/dist/index.html"));
+      });
+
+    app.get("/error", (req, res) => {
+        res.sendFile(path.join(process.cwd(), "/dist/error.html"));
+      });
 
     console.log(chalk.green("Creating HTTP Server Requests..."));
     server.on("request", (req, res) => {

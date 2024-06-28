@@ -74,7 +74,7 @@ function search(input) {
 if ('serviceWorker' in navigator) {
   var proxySetting = 'uv';
   let swConfig = {
-    'uv': { file: '/uv/sw.js', config: __uv$config }
+    'uv': { file: '/@/sw.js', config: __uv$config }
   };
 
   let { file: swFile, config: swConfigSettings } = swConfig[proxySetting];
