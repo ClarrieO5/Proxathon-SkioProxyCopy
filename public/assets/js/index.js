@@ -93,10 +93,12 @@ if (localStorage.getItem("proxy") === "rammerhead") {
       await setTransports()
     })
     navigator.serviceWorker.register(swFile, { scope: swConfigSettings.prefix })
-      .then((registration) => {
+      .then( async (registration) => {
         console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        await setTransports();
         form.addEventListener('submit', async (event) => {
           event.preventDefault();
+          await setTransports();
 
           let encodedUrl = swConfigSettings.prefix + crypts.encode(search(address.value));
           sessionStorage.setItem("encodedUrl", encodedUrl);
