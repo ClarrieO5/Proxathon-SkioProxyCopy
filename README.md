@@ -1,1 +1,1 @@
-# Proxathon-SkioProxy
+# Proxathon-Horizon

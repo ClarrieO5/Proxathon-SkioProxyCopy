@@ -71,21 +71,46 @@ function search(input) {
     }
   }
 }
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.ready.then(async () => {
-    await setTransports()
-  })
-  navigator.serviceWorker.register(swFile, { scope: swConfigSettings.prefix })
-    .then((registration) => {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
 
-        let encodedUrl = swConfigSettings.prefix + crypts.encode(search(address.value));
-        location.href = encodedUrl;
-      });
+if (localStorage.getItem("proxy") === "rammerhead") {
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+      const encodedUrl = await RammerheadEncode(search(address.value));
+      sessionStorage.setItem("encodedUrl", encodedUrl);
+
+      const browseSetting = localStorage.getItem("browse");
+      const browseUrls = {
+        go: "/go",
+        norm: encodedUrl,
+      };
+      const urlToNavigate = browseUrls[browseSetting] || "/go";
+      location.href = urlToNavigate;
+  });
+} else {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.ready.then(async () => {
+      await setTransports()
     })
-    .catch((error) => {
-      console.error('ServiceWorker registration failed:', error);
-    });
+    navigator.serviceWorker.register(swFile, { scope: swConfigSettings.prefix })
+      .then((registration) => {
+        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        form.addEventListener('submit', async (event) => {
+          event.preventDefault();
+
+          let encodedUrl = swConfigSettings.prefix + crypts.encode(search(address.value));
+          sessionStorage.setItem("encodedUrl", encodedUrl);
+
+          const browseSetting = localStorage.getItem("browse");
+          const browseUrls = {
+            go: "/go",
+            norm: encodedUrl,
+          };
+          const urlToNavigate = browseUrls[browseSetting] || "/go";
+          location.href = urlToNavigate;
+        });
+      })
+      .catch((error) => {
+        console.error('ServiceWorker registration failed:', error);
+      });
+  }
 }

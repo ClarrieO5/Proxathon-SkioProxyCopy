@@ -105,6 +105,10 @@ function startServer() {
         res.sendFile(path.join(process.cwd(), "/dist/index.html"));
       });
 
+      app.get("/go", (req, res) => {
+        res.sendFile(path.join(process.cwd(), "/dist/go/index.html"));
+      });
+
     app.get("/error", (req, res) => {
         res.sendFile(path.join(process.cwd(), "/dist/error.html"));
       });
@@ -134,7 +138,7 @@ function startServer() {
 
     server.on("listening", () => {
         const address = server.address();
-        console.log(`Listening to ${chalk.bold(theme("Proxathon SkioProxy"))} on:`);
+        console.log(`Listening to ${chalk.bold(theme("Proxathon Horizon"))} on:`);
 
         console.log(`  ${chalk.bold(host("Local System:"))}            http://${address.family === "IPv6" ? `[${address.address}]` : address.address}${address.port === 80 ? "" : ":" + chalk.bold(address.port)}`);
 
@@ -162,7 +166,7 @@ function startServer() {
     process.on("SIGINT", shutdown);
     process.on("SIGTERM", shutdown);
     function shutdown() {
-        console.log(chalk.redBright("Shutting Down SkioProxy..."));
+        console.log(chalk.redBright("Shutting Down Horizon..."));
         server.close();
         bare.close();
         process.exit(0);
