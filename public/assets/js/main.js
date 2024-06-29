@@ -53,38 +53,6 @@ if (savedColor3) {
     colorPicker3.value = savedColor3;
 }
 
-// Function to toggle the background color
-function toggleBackground() {
-    // Check the current state of the checkbox
-    var isChecked = document.getElementById("backgroundToggle").checked;
-
-    // Set the background color based on the checkbox state
-    document.body.style.backgroundColor = isChecked ? "black" : "white";
-    document.body.style.color = isChecked ? "#fff" : "#4c4c4c";
-
-
-    // Save the state to local storage
-    localStorage.setItem("backgroundToggle", isChecked);
-}
-
-// Function to load the saved background color
-function loadBackground() {
-    // Get the saved state from local storage
-    var isChecked = localStorage.getItem("backgroundToggle") === "true";
-
-    // Set the checkbox state and background color
-    document.getElementById("backgroundToggle").checked = isChecked;
-    toggleBackground();
-}
-
-// Add event listener to the checkbox
-document.addEventListener("DOMContentLoaded", function () {
-    var checkbox = document.getElementById("backgroundToggle");
-    checkbox.addEventListener("change", toggleBackground);
-
-    // Load the background color when the page is loaded
-    loadBackground();
-});
 // Check for saved background in localStorage
 if (localStorage.getItem("backgroundImage")) {
     document.getElementById("background").style.backgroundImage =
@@ -164,23 +132,23 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateTriggerKey(value) {
         triggerKey = value.slice(0, 1); // Limit to the first character
     }
-    if (document.getElementById("keyInput")){
+    if (document.getElementById("keyInput")) {
         document
-        .getElementById("keyInput")
-        .addEventListener("input", (e) => {
-            updateTriggerKey(e.target.value);
-        });
-
-    document
-        .getElementById("keyInput")
-        .addEventListener("keypress", (e) => {
-            if (e.key === "Enter") {
+            .getElementById("keyInput")
+            .addEventListener("input", (e) => {
                 updateTriggerKey(e.target.value);
-                e.preventDefault(); // Prevent form submission if inside a form
-            }
-        });
+            });
+
+        document
+            .getElementById("keyInput")
+            .addEventListener("keypress", (e) => {
+                if (e.key === "Enter") {
+                    updateTriggerKey(e.target.value);
+                    e.preventDefault(); // Prevent form submission if inside a form
+                }
+            });
     }
-    
+
 
     document.addEventListener("keydown", (e) => {
         if (e.key === triggerKey) {
@@ -211,3 +179,10 @@ function openGame() {
     win.document.head.appendChild(link);
     win.document.body.appendChild(iframe);
 }
+
+document.getElementById('info').addEventListener('click', () => {
+    vex.dialog.alert({
+        unsafeMessage: `<h2>Info:</h2>
+    <br>
+    <p> Welcome to Horizon! Horizon is customizable Web Proxy that has all the customization you'll need! just right click to open settings and set up your Shortcuts!</p>` })
+});

@@ -29,7 +29,8 @@ class crypts {
 const proxySetting = localStorage.getItem("proxy") ?? 'uv'; // Using nullish coalescing operator for default value
 
 const swConfig = {
-  'uv': { file: '/@/sw.js', config: __uv$config }
+  'uv': { file: '/@/sw.js', config: __uv$config },
+  'scramjet': { file: '/$/sw.js', config: __scramjet$config }
 };
 
 const { file: swFile, config: swConfigSettings } = swConfig[proxySetting] ?? { file: '/@/sw.js', config: __uv$config };

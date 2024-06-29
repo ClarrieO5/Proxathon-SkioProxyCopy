@@ -126,13 +126,15 @@ if (localStorage.getItem("proxy") === "rammerhead") {
   });
 } else {
   if ("serviceWorker" in navigator) {
-    var proxySetting = localStorage.getItem("proxy") || "uv";
-    let swConfig = {
-      uv: { file: "/@/sw.js", config: __uv$config }
+    const proxySetting = localStorage.getItem("proxy") ?? 'uv'; // Using nullish coalescing operator for default value
+
+    const swConfig = {
+      'uv': { file: '/@/sw.js', config: __uv$config },
+      'scramjet': { file: '/$/sw.js', config: __scramjet$config }
     };
-
-    let { file: swFile, config: swConfigSettings } = swConfig[proxySetting];
-
+    
+    const { file: swFile, config: swConfigSettings } = swConfig[proxySetting] ?? { file: '/@/sw.js', config: __uv$config };
+    
     navigator.serviceWorker
       .register(swFile, { scope: swConfigSettings.prefix })
       .then((registration) => {
