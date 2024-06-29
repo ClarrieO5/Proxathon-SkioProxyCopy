@@ -26,6 +26,15 @@ class crypts {
   }
 }
 
+const proxySetting = localStorage.getItem("proxy") ?? 'uv'; // Using nullish coalescing operator for default value
+
+const swConfig = {
+  'uv': { file: '/@/sw.js', config: __uv$config }
+};
+
+const { file: swFile, config: swConfigSettings } = swConfig[proxySetting] ?? { file: '/@/sw.js', config: __uv$config };
+
+
 var wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 
 async function setTransports() {
@@ -43,7 +52,7 @@ async function setTransports() {
 function search(input) {
   input = input.trim();  // Trim the input to remove any whitespace
   // Retrieve the search engine URL template from localStorage or use default
-  const searchTemplate = localStoage.getItem("search") || 'https://google.com/search?q=%s';
+  const searchTemplate = localStorage.getItem("search") || 'https://google.com/search?q=%s';
 
   try {
     // Try to treat the input as a URL
@@ -63,13 +72,6 @@ function search(input) {
   }
 }
 if ('serviceWorker' in navigator) {
-  var proxySetting = localStorage.getItem("proxy") || 'uv';
-  let swConfig = {
-    'uv': { file: '/@/sw.js', config: __uv$config }
-  };
-
-  let { file: swFile, config: swConfigSettings } = swConfig[proxySetting];
-
   navigator.serviceWorker.ready.then(async () => {
     await setTransports()
   })

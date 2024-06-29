@@ -2,6 +2,7 @@
     --theme-color: #b700ff;
     --shadow-color: #4b4b4b;
     --shadow-color2: #4b4b4b;
+    
 }
 
 .icon {
@@ -84,7 +85,7 @@
 
 body {
   top: 50%;
-  font-family: arial;
+  font-family: "Metropolis", "sans-serif";
   color: #4c4c4c;
   text-align: center;
 }
