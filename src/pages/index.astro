@@ -1,14 +1,38 @@
+---
+import { renderPopup } from '../utils/renderPopup';
+import { createSignal } from 'solid-js';
+
+const handleClose = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.remove();
+  }
+};
+
+const [showPopup, setShowPopup] = createSignal(false);
+
+function handleClick() {
+				var popuptest = renderPopup({id: "hello2", title: "Hello", onClose: handleClose("hello2")}, "<h1>Hello World!</h1>")
+			}
+---
+
 <html lang="en">
 	<head>
-		<script src="/assets/js/lib/jquery/jquery-3.7.1.slim.min.js" is:inline></script>
+		<script src="/assets/js/lib/jquery/jquery-3.7.1.slim.min.js" is:inline
+		></script>
 		<link
 			href="https://fonts.cdnfonts.com/css/metropolis-2"
 			rel="stylesheet"
 		/>
 		<script src="/assets/js/lib/vex/vex.combined.min.js" is:inline></script>
 		<link rel="stylesheet" href="/assets/css/lib/vex/vex.css" />
-		<link rel="stylesheet" href="/assets/css/lib/vex/vex-theme-default.css" />
-		<script>vex.defaultOptions.className = 'vex-theme-default'</script>
+		<link
+			rel="stylesheet"
+			href="/assets/css/lib/vex/vex-theme-default.css"
+		/>
+		<script>
+			vex.defaultOptions.className = "vex-theme-default";
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="title" content="Horizon" />
@@ -28,7 +52,8 @@
 		<script src="/libcurl/index.js" is:inline></script>
 	</head>
 
-	<body>
+	<body>				
+		<button id="hello" onclick={handleClick}>Hello</button>
 		<center>
 			<h3
 				style="
@@ -40,7 +65,7 @@
 			>
 				Horizon v1
 			</h3>
-			
+
 			<div class="card" style="position: fixed">
 				<div class="bg">
 					<h2
@@ -105,8 +130,8 @@
 			<center></center>
 		</center>
 		<div
-				class="group"
-				style="
+			class="group"
+			style="
                     position: fixed;
                     bottom: 4px;
                     left: 4px;
@@ -114,31 +139,31 @@
                     padding-left: 2px;
                     padding-right: 2px;
                 "
-			>
-				<input
-					type="color"
-					id="colorPicker"
-					class="style1"
-					value="#b700ff"
-					title="Click and drag to change rgb line color"
-				/>
-				<input
-					type="color"
-					id="colorPicker3"
-					class="style1"
-					style="margin-left: -5px"
-					value="#4b4b4b"
-					title="Click and drag to change the top shadow color"
-				/>
-				<input
-					type="color"
-					id="colorPicker2"
-					class="style1"
-					style="margin-left: -5px"
-					value="#d1d1d1"
-					title="Click and drag to change the bottom shadow color"
-				/>
-			</div>
+		>
+			<input
+				type="color"
+				id="colorPicker"
+				class="style1"
+				value="#b700ff"
+				title="Click and drag to change rgb line color"
+			/>
+			<input
+				type="color"
+				id="colorPicker3"
+				class="style1"
+				style="margin-left: -5px"
+				value="#4b4b4b"
+				title="Click and drag to change the top shadow color"
+			/>
+			<input
+				type="color"
+				id="colorPicker2"
+				class="style1"
+				style="margin-left: -5px"
+				value="#d1d1d1"
+				title="Click and drag to change the bottom shadow color"
+			/>
+		</div>
 		<div style="position: absolute; top: 10px; right: 10px" class="group">
 			<img
 				src="/assets/imgs/help.png"
@@ -147,7 +172,6 @@
 				class="icon"
 				style="width: 23px"
 				id="info"
-				
 			/>
 			<img
 				class="icon"
@@ -200,13 +224,12 @@
 			/>
 		</div></body
 	>
-	
 	<script src="/@/uv.bundle.js" is:inline></script>
 	<script src="/@/uv.config.js" is:inline></script>
 	<script src="/$/scramjet.worker.js" is:inline></script>
-    <script src="/$/scramjet.bundle.js" is:inline></script>
+	<script src="/$/scramjet.bundle.js" is:inline></script>
 	<script src="/$/scramjet.codecs.js" is:inline></script>
-    <script src="/$/scramjet.config.js" is:inline></script>
+	<script src="/$/scramjet.config.js" is:inline></script>
 	<script src="/assets/js/lib/rh/rammerhead.js" is:inline></script>
 	<script src="/assets/js/index.js" is:inline></script>
 	<script type="module" src="/assets/js/main.js" is:inline></script>

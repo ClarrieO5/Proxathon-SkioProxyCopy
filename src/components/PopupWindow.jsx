@@ -26,20 +26,20 @@ const PopupWindow = ({ id, title, onClose, children }) => {
 
   return (
     <div
-      className="popup"
+      className="popup-window"
       id={id}
       style={{ left: `${position.x}px`, top: `${position.y}px`, position: 'absolute' }}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp} // Ensure dragging stops when mouse leaves the window
     >
-      <div className="popup-titlebar" onMouseDown={handleMouseDown}>
+      <div className="title-bar" onMouseDown={handleMouseDown}>
         {title}
         <div className="popup-controls">
           <button onClick={onClose}>X</button>
         </div>
       </div>
-      <div className="popup-content">{children}</div>
+      <div className="content">{children}</div>
     </div>
   );
 };

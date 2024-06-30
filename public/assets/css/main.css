@@ -353,7 +353,7 @@ body {
   }
 }
 
-.app-window {
+.popup-window {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -365,7 +365,7 @@ body {
   z-index: 1000;
 }
 
-.app-window .title-bar {
+.popup-window .title-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -376,10 +376,10 @@ body {
   border-top-right-radius: 5px;
 }
 
-.app-window .title-bar .title {
+.popup-window .title-bar .title {
   margin: 0;
 }
 
-.app-window .content {
+.popup-window .content {
   padding: 20px;
 }
