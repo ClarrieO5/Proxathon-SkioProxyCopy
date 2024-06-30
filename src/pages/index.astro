@@ -1,21 +1,3 @@
----
-import { renderPopup } from '../utils/renderPopup';
-import { createSignal } from 'solid-js';
-
-const handleClose = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.remove();
-  }
-};
-
-const [showPopup, setShowPopup] = createSignal(false);
-
-function handleClick() {
-				var popuptest = renderPopup({id: "hello2", title: "Hello", onClose: handleClose("hello2")}, "<h1>Hello World!</h1>")
-			}
----
-
 <html lang="en">
 	<head>
 		<script src="/assets/js/lib/jquery/jquery-3.7.1.slim.min.js" is:inline
@@ -52,8 +34,7 @@ function handleClick() {
 		<script src="/libcurl/index.js" is:inline></script>
 	</head>
 
-	<body>				
-		<button id="hello" onclick={handleClick}>Hello</button>
+	<body>			
 		<center>
 			<h3
 				style="
