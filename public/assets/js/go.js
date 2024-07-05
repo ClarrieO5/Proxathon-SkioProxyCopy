@@ -1,3 +1,5 @@
+import { setupServiceWorker } from "/assets/js/register-sw.js";
+setupServiceWorker();
 const form = document.getElementById("uv-form");
 const address = document.getElementById("uv-address");
 const input = document.querySelector("input");
@@ -134,21 +136,14 @@ if (localStorage.getItem("proxy") === "rammerhead") {
     };
     
     const { file: swFile, config: swConfigSettings } = swConfig[proxySetting] ?? { file: '/@/sw.js', config: __uv$config };
-    
-    navigator.serviceWorker
-      .register(swFile, { scope: swConfigSettings.prefix })
-      .then((registration) => {
-        console.log("ServiceWorker registration successful with scope: ", registration.scope);
-        form.addEventListener("submit", async (event) => {
-          event.preventDefault();
 
-          let encodedUrl = swConfigSettings.prefix + crypts.encode(search(address.value));
-          document.getElementById("iframeId").src = encodedUrl;
-        });
-      })
-      .catch((error) => {
-        console.error("ServiceWorker registration failed:", error);
-      });
+    // We load the Ultraviolet as soon as the page loads.
+    // This prevents any issues with loading the page
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      let encodedUrl = swConfigSettings.prefix + crypts.encode(search(address.value));
+      document.getElementById("iframeId").src = encodedUrl;
+    });
   }
 }
 

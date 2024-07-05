@@ -5,7 +5,7 @@ import { createBareServer } from "@tomphttp/bare-server-node";
 import createRammerhead from "rammerhead/src/server/index.js";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
-import { baremuxPath } from "@mercuryworkshop/bare-mux";
+import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { existsSync } from "fs";
 import chalk from "chalk";
 import { hostname } from "node:os";
